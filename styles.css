@@ -54,9 +54,6 @@ nav.sidebar {
 
 /* styles for resume button */
 .resume-btn {
-    /*position: absolute;
-    bottom: 20px;
-    transform: translateY(160%);*/
     background-color: rgb(70, 130, 180);
     color: white;
     padding: 10px 15px;
@@ -85,6 +82,7 @@ nav.sidebar {
     grid-area: main;
     overflow-y: auto;
 }
+
 /* styles for footer */
 .footer {
     grid-area: footer;
@@ -132,13 +130,6 @@ nav.sidebar {
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 0.9rem;
-}
-
-
-
-
-/* hover effect for skills */
-.skill {
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -194,69 +185,42 @@ nav.sidebar {
     font-size: 1rem;
 }
 
-/* very small sizes */
-@media (max-width: 480px) {
-    /* Container: stack all sections vertically */
+
+/* large sizes ========== */
+@media (max-width: 1024px) {
+    /* Adjust sidebar width */
     .container {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-areas:
-            "header"
-            "sidebar"
-            "main"
-            "footer";
-        row-gap: 10px;
-        column-gap: 0;
+        grid-template-columns: 180px 1fr;
+        row-gap: 15px;
+        column-gap: 5px;
     }
 
-    /* Sidebar navigation: horizontal at the top */
     nav.sidebar {
-        flex-direction: row;
-        justify-content: space-around;
-        padding-top: 5px;
-        gap: 5px;
+        gap: 25px;
+        padding-top: 10px;
     }
 
-    /* Resume button: inline with nav links */
     .resume-btn {
-        position: static;
-        transform: none;
-        margin-top: 0;
-        font-size: 0.9rem;
-        padding: 8px 12px;
-    }
-
-    /* Header font sizes */
-    .header h2 {
-        font-size: 1.2rem;
-    }
-    .header h3 {
         font-size: 1rem;
+        padding: 10px 14px;
     }
 
-    /* Section headings */
     section h3 {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
-    /* Skills container */
     .skills-container {
-        flex-direction: column;
-        gap: 5px;
+        justify-content: flex-start;
     }
 
-    /* Project grid: single column */
     .project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Footer font size */
-    .footer {
-        font-size: 0.9rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
     }
 }
 
-/* small sizes */
+
+/* med sizes */
 @media (max-width: 768px) {
     /* Container: sidebar can be narrower */
     .container {
@@ -303,35 +267,73 @@ nav.sidebar {
     }
 }
 
-/* medium sizes ========== */
-@media (max-width: 1024px) {
-    /* Adjust sidebar width */
+
+
+/* small sizes ========== */
+@media (max-width: 480px) {
+    /* Container: stack all sections vertically */
     .container {
-        grid-template-columns: 180px 1fr;
-        row-gap: 15px;
-        column-gap: 5px;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        row-gap: 10px;
+        column-gap: 0;
     }
 
+    /* Sidebar navigation: horizontal at the top */
     nav.sidebar {
-        gap: 25px;
-        padding-top: 10px;
+        flex-direction: row;
+        width: 100%;
+        font-size: 0.8rem;
+        justify-content: space-around;
+        padding-top: 5px;
+        gap: 5px;
     }
 
+    /* Resume button: inline with nav links */
     .resume-btn {
+        position: static;
+        transform: none;
+        margin-top: 0;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* Header font sizes */
+    .header h2 {
+        font-size: 1.2rem;
+    }
+    .header h3 {
         font-size: 1rem;
-        padding: 10px 14px;
     }
 
+    /* Section headings */
     section h3 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
+    /* Skills container */
     .skills-container {
-        justify-content: flex-start;
+        flex-direction: column;
+        gap: 5px;
     }
 
+    /* Project grid: single column */
     .project-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
+        grid-template-columns: 1fr;
+    }
+
+    .project-card img {
+        float: none;
+        display: block;
+        margin: 0 10px auto;
+    }
+
+    /* Footer font size */
+    .footer {
+        font-size: 0.9rem;
     }
 }
