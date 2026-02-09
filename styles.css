@@ -1,339 +1,198 @@
 /* styles.css */
 /* Styles for the resume webpage */
-/* make container a grid layout */
-.container{
-    display: grid;
-    height: 100vh;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 200px 1fr;
-    grid-template-areas: 
-    "header header"
-    "sidebar main"
-    "footer footer";
-    row-gap: 20px;
-    column-gap: 5px;
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-/* styles for all divs */
-div {
+
+/* ===== COLORS, FONTS, AND SPACING ===== */
+.header, .sidebar, .main-content, .footer {
     background-color: lightsteelblue;
-    border: 2px solid black;
     padding: 20px;
+    border-radius: 5px;
     color: black;
     text-align: center;
 }
 
+/* ===== MAIN GRID LAYOUT ===== */
+.container {
+    display: grid;
+    height: 100vh;
+    background: lightsteelblue;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+    gap: 5px;
+    padding: 5px;
+}
 
-
-/* styles for header, sidebar, main content, and footer */
-/* make header sticky */
+/* ===== HEADER ===== */
 .header {
     grid-area: header;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     background-color: lightsteelblue;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    border: 2px solid black;
+    top: 0;
 }
 
-
-
-
-/* styles for sidebar navigation */
-nav.sidebar {
-    position: relative;
+/* ===== SIDEBAR ===== */
+.sidebar {
     grid-area: sidebar;
+    background-color: lightsteelblue;
+    padding: 20px;
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    padding-top: 10px;
+    gap: 15px;
+    border: 2px solid black;
 }
 
 
-
-
-/* styles for resume button */
-.resume-btn {
-    background-color: rgb(70, 130, 180);
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    display: inline-block;
-    transition: background-color 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* hover effect for resume button */
-.resume-btn:hover {
-    background-color: rgb(100, 149, 237);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-
-
-
-
-/* styles for main content area */
+/* ===== MAIN CONTENT ===== */
 .main-content {
     grid-area: main;
+    background-color: lightsteelblue;
+    padding: 20px;
+    border: 2px solid black;
     overflow-y: auto;
 }
 
-/* styles for footer */
+/* ===== FOOTER ===== */
 .footer {
     grid-area: footer;
-    background-color: rgb(176, 196, 222);
+    background-color: lightsteelblue;
+    padding: 20px;
+    text-align: center;
     border: 2px solid black;
-    padding: 15px;
-    color: black;
-    position: relative;
-}
-/* styles for sections within main content */
-#introduction, #education, #experience {
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-
-#introduction h3, #education h3, #experience h3 {
-    font-size: 1.4rem;
-}
-
-#introduction p, #education p, #experience p {
-    font-size: 1rem;
-    text-align: left;
-    font-family: Arial, sans-serif;
-}
-
-#introduction ul, #education ul, #experience ul {
-    font-size: 0.9rem;
-    font-family: Arial, sans-serif;
 
 }
-#introduction li, #education li, #experience li {
-    margin-bottom: 0.5rem;
+
+/* ===== RESUME BUTTON TRANSITION ===== */
+.resume-btn {
+    background-color: steelblue;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease,
+                border-radius 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
 }
-/* styles for skills section */
+
+.resume-btn:hover {
+    background-color: cornflowerblue;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+}
+
+/* ===== SKILLS ===== */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
 }
 
+/* Each skill box */
 .skill {
-    background-color: rgb(89, 89, 89);
+    background-color: #555;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease,
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
+/* Hover effect for skill boxes */
 .skill:hover {
     transform: scale(1.2) rotate(-5deg);
-    background-color: rgb(70, 130, 180);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    cursor: pointer;
+    background-color: steelblue;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-
-
-
-/* styles for projects section */
+/* ===== PROJECTS ===== */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    padding: 10px;
+    border: 2px solid black;
+
 }
 
-.project-card {
-    background-color: rgb(227, 227, 227);
-    padding: 15px;
-    border-radius: 5px;
-    text-align: left;
-}
-
+/* Each project card */
 .project-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    /* Add transition for smooth hover effect */
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    width: 45%;
     float: left;
     margin-right: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Hover effect for project images */
 .project-card img:hover {
     transform: scale(1.05);
     opacity: 0.8;
-    cursor: pointer;
 }
 
+/* ===== RESPONSIVE DESIGN ===== */
 
-
-
-/* styles for contact information in footer */
-#contact-information {
-    position: relative;
-    font-size: 1rem;
-}
-
-
-/* large sizes ========== */
+/* Large */
 @media (max-width: 1024px) {
-    /* Adjust sidebar width */
     .container {
         grid-template-columns: 180px 1fr;
-        row-gap: 15px;
-        column-gap: 5px;
-    }
-
-    nav.sidebar {
-        gap: 25px;
-        padding-top: 10px;
-    }
-
-    .resume-btn {
-        font-size: 1rem;
-        padding: 10px 14px;
-    }
-
-    section h3 {
-        font-size: 1.3rem;
-    }
-
-    .skills-container {
-        justify-content: flex-start;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
     }
 }
 
-
-/* med sizes */
+/* Medium */
 @media (max-width: 768px) {
-    /* Container: sidebar can be narrower */
     .container {
         grid-template-columns: 150px 1fr;
-        grid-template-areas:
-            "header header"
-            "sidebar main"
-            "footer footer";
-    }
-
-    nav.sidebar {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 20px;
-        padding-top: 10px;
-    }
-
-    /* Resume button */
-    .resume-btn {
-        font-size: 0.95rem;
-        padding: 8px 12px;
-    }
-
-    /* Header fonts slightly smaller */
-    .header h2 {
-        font-size: 1.5rem;
-    }
-    .header h3 {
-        font-size: 1.1rem;
-    }
-
-    section h3 {
-        font-size: 1.2rem;
-    }
-
-    .skills-container {
-        justify-content: flex-start;
-        flex-wrap: wrap;
     }
 
     .project-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr;
     }
 }
 
-
-
-/* small sizes ========== */
+/* Small */
 @media (max-width: 480px) {
-    /* Container: stack all sections vertically */
     .container {
         grid-template-columns: 1fr;
         grid-template-areas:
-            "header"
-            "sidebar"
-            "main"
-            "footer";
-        row-gap: 10px;
-        column-gap: 0;
-    }
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+  }
 
-    /* Sidebar navigation: horizontal at the top */
-    nav.sidebar {
+    .sidebar {
         flex-direction: row;
-        width: 100%;
-        font-size: 0.8rem;
-        justify-content: space-around;
-        padding-top: 5px;
-        gap: 5px;
-    }
+        flex-wrap: wrap;
+        justify-content: center;
+  }
 
-    /* Resume button: inline with nav links */
-    .resume-btn {
-        position: static;
-        transform: none;
-        margin-top: 0;
-        font-size: 0.9rem;
-        padding: 8px 12px;
-    }
-
-    /* Header font sizes */
-    .header h2 {
-        font-size: 1.2rem;
-    }
-    .header h3 {
-        font-size: 1rem;
-    }
-
-    /* Section headings */
-    section h3 {
-        font-size: 1.1rem;
-    }
-
-    /* Skills container */
-    .skills-container {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    /* Project grid: single column */
     .project-grid {
         grid-template-columns: 1fr;
-    }
+  }
 
     .project-card img {
         float: none;
-        display: block;
-        margin: 0 10px auto;
-    }
+        width: 100%;
+        margin: 0;
+  }
 
-    /* Footer font size */
-    .footer {
-        font-size: 0.9rem;
-    }
+    .header {
+        position: static; /* prevents overlap bug */
+  }
 }
